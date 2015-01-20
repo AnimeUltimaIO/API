@@ -51,12 +51,12 @@ Route::get('anime/view/{anime_id}', [
 
 ]);
 
-Route::get('episodes/newepisodes', [
+Route::get('episodes/newepisodes/{take}', [
 
 	'uses'		=>		'EpisodeController@newEpisodes',
 	'as'		=>		'episodes/newepisodes'
 
-]);
+])->where(['take' => '[0-9]+']);
 
 Route::get('episodes/list/{anime_id}', [
 

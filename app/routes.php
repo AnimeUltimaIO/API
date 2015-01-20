@@ -30,10 +30,37 @@ Route::pattern('video_id', '[0-9]+');
 /**
 * ANIME API
 */
-Route::get('/anime/list/{api_key}', [
+Route::get('anime/list', [
 
-	'before'	=>		'validAPIKey',
 	'uses'		=>		'AnimeController@index',
 	'as'		=>		'anime/index'
 
+]);
+
+Route::get('anime/list/{status}', [
+
+	'uses'		=>		'AnimeController@index',
+	'as'		=>		'anime/index'
+
+])->where(['status' => 'on-going|completed']);
+
+Route::get('anime/view/{anime_id}', [
+
+	'uses'		=>		'AnimeController@view',
+	'as'		=>		'anime/index'
+
+]);
+
+
+Route::get('episodes/list/{anime_id}', [
+
+	'uses'		=>		'EpisodeController@listEpisode',
+	'as'		=>		'anime/index'
+
+]);
+
+Route::get('video/{anime_id}/{episode_num}', [
+
+	'uses'		=>		'VideoController@view',
+	'as'		=>		'video/view'
 ]);

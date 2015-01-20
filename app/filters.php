@@ -37,7 +37,7 @@ App::after(function($request, $response)
 Route::filter('validAPIKey', function(){
 
 	//return true for now
-	return true;
+
 });
 
 Route::filter('auth', function()

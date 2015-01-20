@@ -47,20 +47,26 @@ Route::get('anime/list/{status}', [
 Route::get('anime/view/{anime_id}', [
 
 	'uses'		=>		'AnimeController@view',
-	'as'		=>		'anime/index'
+	'as'		=>		'anime/view'
 
 ]);
 
+Route::get('episodes/newepisodes', [
+
+	'uses'		=>		'EpisodeController@newEpisodes',
+	'as'		=>		'episodes/newepisodes'
+
+]);
 
 Route::get('episodes/list/{anime_id}', [
 
 	'uses'		=>		'EpisodeController@listEpisode',
-	'as'		=>		'anime/index'
+	'as'		=>		'episodes/list'
 
 ]);
 
 Route::get('video/{anime_id}/{episode_num}', [
 
 	'uses'		=>		'VideoController@view',
-	'as'		=>		'video/view'
+	'as'		=>		'videos/view'
 ]);
